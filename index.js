@@ -2,7 +2,7 @@
 // index.js
 import express from 'express';
 import pkg from 'pg';
-import 'dotenv/config';
+
 
 const { Pool } = pkg;
 const app = express();
