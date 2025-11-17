@@ -2,6 +2,7 @@
 // index.js
 import express from 'express';
 import pkg from 'pg';
+import 'dotenv/config';
 
 const { Pool } = pkg;
 const app = express();
@@ -9,8 +10,9 @@ const PORT = process.env.PORT || 3000;
 
 // Conexão com PostgreSQL usando a DATABASE_URL do Render
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || "postgresql://teste_postgresql_yks3_user:cBkLWDEkFhCc5Iifil1RWua5eaPMCnfo@dpg-d4dpn2ggjchc73bqvagg-a.oregon-postgres.render.com/teste_postgresql_yks3",
-  ssl: { rejectUnauthorized: false }
+//   connectionString: process.env.DATABASE_URL || "postgresql://teste_postgresql_yks3_user:cBkLWDEkFhCc5Iifil1RWua5eaPMCnfo@dpg-d4dpn2ggjchc73bqvagg-a.oregon-postgres.render.com/teste_postgresql_yks3",
+ connectionString: process.env.DATABASE_URL,  
+ssl: { rejectUnauthorized: false }
 });
 
 // Middleware para interpretar JSON
